@@ -1,0 +1,648 @@
+[
+	{
+		"name": "steps",
+		"label": "Iterations",
+		"required": false,
+		"locked": false,
+		"display": "radio",
+		"inline_help_text": "<strong>Just for demo purpose!</strong> Changing this will show each evolution of the script",
+		"help_text": "",
+		"choices": [
+			["step_1", "Step 1"],
+			["step_2", "Step 2"]
+		],
+		"type": "choice",
+		"placeholder": "",
+		"default": "step_1"
+	},
+	{
+		"name": "headline",
+		"label": "Headline",
+		"id": "content.headline",
+		"required": false,
+		"locked": false,
+		"validation_regex": "",
+		"validation_error_message": "",
+		"allow_new_line": false,
+		"show_emoji_picker": true,
+		"type": "text",
+		"placeholder": "",
+		"inline_help_text": "",
+		"help_text": "",
+		"default": "Informative headline"
+	},
+	{
+		"name": "headline_aria",
+		"label": "Headline aria label",
+		"required": false,
+		"locked": false,
+		"validation_regex": "",
+		"validation_error_message": "",
+		"allow_new_line": false,
+		"show_emoji_picker": true,
+		"type": "text",
+		"placeholder": "",
+		"inline_help_text": "",
+		"help_text": "",
+		"default": "this is the main headline!",
+		"visibility": {
+			"controlling_field": "content.headline",
+			"controlling_value_regex": "true",
+			"operator": "NOT_EMPTY"
+		}
+	},
+	{
+		"name": "headline_size",
+		"label": "Headline size",
+		"required": false,
+		"locked": false,
+		"display": "select",
+		"inline_help_text": "",
+		"help_text": "This will set the headline-tag. <strong>SEO relevant</strong>",
+		"choices": [
+			["h1", "Headline 1"],
+			["h2", "Headline 2"],
+			["h3", "Headline 3"],
+			["h4", "Headline 4"],
+			["h5", "Headline 5"],
+			["h6", "Headline 6"]
+		],
+		"type": "choice",
+		"placeholder": "",
+		"default": "h3",
+		"visibility": {
+			"controlling_field": "content.headline",
+			"controlling_value_regex": "true",
+			"operator": "NOT_EMPTY"
+		}
+	},
+	{
+		"name": "headline_style",
+		"label": "Headline style",
+		"required": false,
+		"locked": false,
+		"display": "select",
+		"inline_help_text": "",
+		"help_text": "This will set the headline look. <strong>Only for styling - no SEO impact</strong>",
+		"choices": [
+			["h1", "Headline 1"],
+			["h2", "Headline 2"],
+			["h3", "Headline 3"],
+			["h4", "Headline 4"],
+			["h5", "Headline 5"],
+			["h6", "Headline 6"]
+		],
+		"type": "choice",
+		"placeholder": "",
+		"default": "h3",
+		"visibility": {
+			"controlling_field": "content.headline",
+			"controlling_value_regex": "true",
+			"operator": "NOT_EMPTY"
+		}
+	},
+	{
+		"name": "subline",
+		"label": "Subline",
+		"required": false,
+		"locked": false,
+		"type": "richtext",
+		"inline_help_text": "",
+		"help_text": "",
+		"default": "Did you know that penguins can't fly?"
+	},
+	{
+		"name": "add_button",
+		"label": "Add button",
+		"id": "content.add_button",
+		"required": false,
+		"locked": false,
+		"display": "toggle",
+		"type": "boolean",
+		"inline_help_text": "",
+		"help_text": "",
+		"default": true
+	},
+	{
+		"name": "button",
+		"label": "Button",
+		"required": false,
+		"locked": false,
+		"children": [
+			{
+				"name": "button_label",
+				"label": "Button label",
+				"required": true,
+				"locked": false,
+				"validation_regex": "",
+				"validation_error_message": "",
+				"allow_new_line": false,
+				"show_emoji_picker": false,
+				"type": "text",
+				"placeholder": "Explore docs",
+				"inline_help_text": "",
+				"help_text": "",
+				"default": "Explore docs"
+			},
+			{
+				"name": "aria_label",
+				"label": "Aria label",
+				"required": true,
+				"locked": false,
+				"validation_regex": "",
+				"validation_error_message": "",
+				"allow_new_line": false,
+				"show_emoji_picker": false,
+				"type": "text",
+				"placeholder": "Click here to explore the docs",
+				"inline_help_text": "Leave blank to use the button label as aria-label.",
+				"help_text": "",
+				"default": "Click here to explore the docs"
+			},
+			{
+				"name": "link",
+				"label": "Link",
+				"required": false,
+				"locked": false,
+				"supported_types": ["EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "BLOG"],
+				"type": "link",
+				"inline_help_text": "",
+				"help_text": "",
+				"default": {
+					"url": {
+						"content_id": null,
+						"type": "EXTERNAL",
+						"href": ""
+					},
+					"open_in_new_tab": false,
+					"no_follow": false
+				}
+			},
+			{
+				"name": "icon_name",
+				"label": "Icon name",
+				"required": true,
+				"locked": false,
+				"validation_regex": "",
+				"validation_error_message": "",
+				"allow_new_line": false,
+				"show_emoji_picker": false,
+				"type": "text",
+				"placeholder": "fa-arrow-right",
+				"inline_help_text": "Put the name of the desired icon here. Leave blank for no icon",
+				"help_text": "",
+				"default": "fa-arrow-right"
+			}
+		],
+		"type": "group",
+		"inline_help_text": "",
+		"help_text": "",
+		"default": {},
+		"visibility": {
+			"controlling_field": "content.add_button",
+			"controlling_value_regex": "true",
+			"operator": "EQUAL"
+		}
+	},
+	{
+		"name": "styles",
+		"label": "Styles",
+		"children": [
+			{
+				"name": "hero_settings",
+				"label": "Hero settings",
+				"required": false,
+				"locked": false,
+				"children": [
+					{
+						"name": "background_color",
+						"label": "Background color",
+						"required": false,
+						"locked": false,
+						"display": "select",
+						"inline_help_text": "",
+						"help_text": "",
+						"choices": [
+							["solaris", "Solaris"],
+							["yuma", "Yuma"],
+							["lorax", "Lorax"],
+							["helios", "Helios"],
+							["chapati", "Chapati"],
+							["oatmilk", "Oatmilk"],
+							["dark-matter", "Dark Matter"],
+							["eclipse", "Eclipse"],
+							["galaxy", "Galaxy"],
+							["meteor", "Meteor"],
+							["celestial", "Celestial"],
+							["comet", "Comet"],
+							["nebula", "Nebula"],
+							["milky-way", "Milky Way"],
+							["satelite", "Satelite"],
+							["constellation", "Constellation"],
+							["supernova", "Supernova"],
+							["moon", "Moon"],
+							["cherry-blossom", "Cherry Blossom"],
+							["lake-hilier", "Lake Hilier"],
+							["cano-cristales", "Caño Cristales"],
+							["dahlia", "Dahlia"],
+							["kyoto", "Kyoto"],
+							["coquelicot", "Coquelicot"],
+							["maple-leaf", "Maple Leaf"],
+							["tinto", "Tinto"]
+						],
+						"type": "choice",
+						"placeholder": "",
+						"default": "eclipse"
+					}
+				],
+				"type": "group",
+				"inline_help_text": "",
+				"help_text": "",
+				"default": {}
+			},
+			{
+				"name": "morse_settings",
+				"label": "Morse settings",
+				"required": false,
+				"locked": false,
+				"children": [
+					{
+						"name": "iterations",
+						"label": "Iterations",
+						"required": false,
+						"locked": false,
+						"display": "text",
+						"step": 1,
+						"type": "number",
+						"min": null,
+						"max": null,
+						"inline_help_text": "",
+						"help_text": "",
+						"default": 15
+					},
+					{
+						"name": "light_color",
+						"label": "Light color",
+						"required": false,
+						"locked": false,
+						"display": "select",
+						"inline_help_text": "",
+						"help_text": "",
+						"choices": [
+							["solaris", "Solaris"],
+							["yuma", "Yuma"],
+							["lorax", "Lorax"],
+							["helios", "Helios"],
+							["chapati", "Chapati"],
+							["oatmilk", "Oatmilk"],
+							["dark-matter", "Dark Matter"],
+							["eclipse", "Eclipse"],
+							["galaxy", "Galaxy"],
+							["meteor", "Meteor"],
+							["celestial", "Celestial"],
+							["comet", "Comet"],
+							["nebula", "Nebula"],
+							["milky-way", "Milky Way"],
+							["satelite", "Satelite"],
+							["constellation", "Constellation"],
+							["supernova", "Supernova"],
+							["moon", "Moon"],
+							["cherry-blossom", "Cherry Blossom"],
+							["lake-hilier", "Lake Hilier"],
+							["cano-cristales", "Caño Cristales"],
+							["dahlia", "Dahlia"],
+							["kyoto", "Kyoto"],
+							["coquelicot", "Coquelicot"],
+							["maple-leaf", "Maple Leaf"],
+							["tinto", "Tinto"]
+						],
+						"type": "choice",
+						"placeholder": "",
+						"default": "comet"
+					},
+					{
+						"name": "dark_color",
+						"label": "Dark color",
+						"required": false,
+						"locked": false,
+						"display": "select",
+						"inline_help_text": "",
+						"help_text": "",
+						"choices": [
+							["solaris", "Solaris"],
+							["yuma", "Yuma"],
+							["lorax", "Lorax"],
+							["helios", "Helios"],
+							["chapati", "Chapati"],
+							["oatmilk", "Oatmilk"],
+							["dark-matter", "Dark Matter"],
+							["eclipse", "Eclipse"],
+							["galaxy", "Galaxy"],
+							["meteor", "Meteor"],
+							["celestial", "Celestial"],
+							["comet", "Comet"],
+							["nebula", "Nebula"],
+							["milky-way", "Milky Way"],
+							["satelite", "Satelite"],
+							["constellation", "Constellation"],
+							["supernova", "Supernova"],
+							["moon", "Moon"],
+							["cherry-blossom", "Cherry Blossom"],
+							["lake-hilier", "Lake Hilier"],
+							["cano-cristales", "Caño Cristales"],
+							["dahlia", "Dahlia"],
+							["kyoto", "Kyoto"],
+							["coquelicot", "Coquelicot"],
+							["maple-leaf", "Maple Leaf"],
+							["tinto", "Tinto"]
+						],
+						"type": "choice",
+						"placeholder": "",
+						"default": "meteor"
+					}
+				],
+				"type": "group",
+				"inline_help_text": "",
+				"help_text": "",
+				"default": {}
+			},
+			{
+				"name": "headline_settings",
+				"label": "Headline settings",
+				"required": false,
+				"locked": false,
+				"children": [
+					{
+						"name": "color",
+						"label": "Color",
+						"required": false,
+						"locked": false,
+						"display": "select",
+						"inline_help_text": "",
+						"help_text": "",
+						"choices": [
+							["solaris", "Solaris"],
+							["yuma", "Yuma"],
+							["lorax", "Lorax"],
+							["helios", "Helios"],
+							["chapati", "Chapati"],
+							["oatmilk", "Oatmilk"],
+							["dark-matter", "Dark Matter"],
+							["eclipse", "Eclipse"],
+							["galaxy", "Galaxy"],
+							["meteor", "Meteor"],
+							["celestial", "Celestial"],
+							["comet", "Comet"],
+							["nebula", "Nebula"],
+							["milky-way", "Milky Way"],
+							["satelite", "Satelite"],
+							["constellation", "Constellation"],
+							["supernova", "Supernova"],
+							["moon", "Moon"],
+							["cherry-blossom", "Cherry Blossom"],
+							["lake-hilier", "Lake Hilier"],
+							["cano-cristales", "Caño Cristales"],
+							["dahlia", "Dahlia"],
+							["kyoto", "Kyoto"],
+							["coquelicot", "Coquelicot"],
+							["maple-leaf", "Maple Leaf"],
+							["tinto", "Tinto"]
+						],
+						"type": "choice",
+						"placeholder": "",
+						"default": "supernova"
+					}
+				],
+				"type": "group",
+				"inline_help_text": "",
+				"help_text": "",
+				"default": {},
+				"visibility": {
+					"controlling_field": "content.headline",
+					"controlling_value_regex": "true",
+					"operator": "NOT_EMPTY"
+				}
+			},
+			{
+				"name": "content_settings",
+				"label": "Content settings",
+				"required": false,
+				"locked": false,
+				"children": [
+					{
+						"name": "color",
+						"label": "Color",
+						"required": false,
+						"locked": false,
+						"display": "select",
+						"inline_help_text": "",
+						"help_text": "",
+						"choices": [
+							["solaris", "Solaris"],
+							["yuma", "Yuma"],
+							["lorax", "Lorax"],
+							["helios", "Helios"],
+							["chapati", "Chapati"],
+							["oatmilk", "Oatmilk"],
+							["dark-matter", "Dark Matter"],
+							["eclipse", "Eclipse"],
+							["galaxy", "Galaxy"],
+							["meteor", "Meteor"],
+							["celestial", "Celestial"],
+							["comet", "Comet"],
+							["nebula", "Nebula"],
+							["milky-way", "Milky Way"],
+							["satelite", "Satelite"],
+							["constellation", "Constellation"],
+							["supernova", "Supernova"],
+							["moon", "Moon"],
+							["cherry-blossom", "Cherry Blossom"],
+							["lake-hilier", "Lake Hilier"],
+							["cano-cristales", "Caño Cristales"],
+							["dahlia", "Dahlia"],
+							["kyoto", "Kyoto"],
+							["coquelicot", "Coquelicot"],
+							["maple-leaf", "Maple Leaf"],
+							["tinto", "Tinto"]
+						],
+						"type": "choice",
+						"placeholder": "",
+						"default": "supernova"
+					}
+				],
+				"type": "group",
+				"inline_help_text": "",
+				"help_text": "",
+				"default": {}
+			},
+			{
+				"name": "button_settings",
+				"label": "Button settings",
+				"required": false,
+				"locked": false,
+				"children": [
+					{
+						"name": "background_color",
+						"label": "Background color",
+						"required": false,
+						"locked": false,
+						"display": "select",
+						"inline_help_text": "",
+						"help_text": "",
+						"choices": [
+							["solaris", "Solaris"],
+							["yuma", "Yuma"],
+							["lorax", "Lorax"],
+							["helios", "Helios"],
+							["chapati", "Chapati"],
+							["oatmilk", "Oatmilk"],
+							["dark-matter", "Dark Matter"],
+							["eclipse", "Eclipse"],
+							["galaxy", "Galaxy"],
+							["meteor", "Meteor"],
+							["celestial", "Celestial"],
+							["comet", "Comet"],
+							["nebula", "Nebula"],
+							["milky-way", "Milky Way"],
+							["satelite", "Satelite"],
+							["constellation", "Constellation"],
+							["supernova", "Supernova"],
+							["moon", "Moon"],
+							["cherry-blossom", "Cherry Blossom"],
+							["lake-hilier", "Lake Hilier"],
+							["cano-cristales", "Caño Cristales"],
+							["dahlia", "Dahlia"],
+							["kyoto", "Kyoto"],
+							["coquelicot", "Coquelicot"],
+							["maple-leaf", "Maple Leaf"],
+							["tinto", "Tinto"]
+						],
+						"type": "choice",
+						"placeholder": "",
+						"default": "solaris"
+					},
+					{
+						"name": "padding",
+						"label": "Padding",
+						"required": false,
+						"locked": false,
+						"type": "spacing",
+						"inline_help_text": "",
+						"help_text": "",
+						"visibility": {
+							"hidden_subfields": {
+								"margin": true
+							}
+						},
+						"default": {
+							"padding": {
+								"top": {
+									"value": 12,
+									"units": "px"
+								},
+								"bottom": {
+									"value": 12,
+									"units": "px"
+								},
+								"left": {
+									"value": 36,
+									"units": "px"
+								},
+								"right": {
+									"value": 36,
+									"units": "px"
+								}
+							}
+						}
+					},
+					{
+						"name": "border_radius",
+						"label": "Border radius",
+						"required": false,
+						"locked": false,
+						"display": "text",
+						"suffix": "px",
+						"step": 1,
+						"type": "number",
+						"min": null,
+						"max": null,
+						"inline_help_text": "",
+						"help_text": "",
+						"default": 8
+					},
+					{
+						"name": "fa_style",
+						"label": "Font Awesome style",
+						"required": false,
+						"locked": false,
+						"display": "select",
+						"inline_help_text": "",
+						"help_text": "",
+						"choices": [
+							["solid", "Solid"],
+							["regular", "Regular"],
+							["light", "Light"],
+							["thin", "Thin"]
+						],
+						"type": "choice",
+						"placeholder": "",
+						"default": "regular"
+					},
+					{
+						"name": "use_sharp",
+						"label": "Use sharp FontAwesome variant",
+						"required": false,
+						"locked": false,
+						"type": "boolean",
+						"inline_help_text": "",
+						"help_text": "",
+						"default": false
+					},
+					{
+						"name": "icon_position",
+						"label": "Icon position",
+						"required": false,
+						"locked": false,
+						"display": "radio",
+						"inline_help_text": "",
+						"help_text": "",
+						"choices": [
+							["left", "Left"],
+							["right", "Right"]
+						],
+						"type": "choice",
+						"placeholder": "",
+						"default": "right"
+					},
+					{
+						"name": "icon_size",
+						"label": "Icon size",
+						"required": false,
+						"locked": false,
+						"display": "select",
+						"inline_help_text": "",
+						"help_text": "",
+						"choices": [
+							["2xs", "2xs(very tiny)"],
+							["xs", "Xs(tiny)"],
+							["sm", "Small"],
+							["", "Default"],
+							["lg", "Large"],
+							["xl", "Extra Large"],
+							["2xl", "2xl(very large)"]
+						],
+						"type": "choice",
+						"placeholder": "",
+						"default": ""
+					}
+				],
+				"type": "group",
+				"inline_help_text": "",
+				"help_text": "",
+				"default": {}
+			}
+		],
+		"type": "group",
+		"tab": "STYLE"
+	}
+]
