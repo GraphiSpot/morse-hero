@@ -62,7 +62,7 @@ It's a hero module that I(Anton) created after Jon McLaren showed the Figma File
 </ul>
 
 <h2>Anything special?</h2>
-<p>Since it was designed truely "by eye" without ever having access to the real Figma file and without seeing a tablet/mobile version - it's optimized for desktop and should be seen more as a "proof of concept" than a fully ready-to-use module. I(Anton) had the </p>
+<p>Since it was designed truely "by eye" without ever having access to the real Figma file and without seeing a tablet/mobile version - it's optimized for desktop and should be seen more as a "proof of concept" than a fully ready-to-use module.</p>
 <p>If you'd like to see the second episode of "Coding with Jon: Let's Build a Website" where I was invited to and talked about the module, here it is:<br>
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=EB5I2f6FNzc" target="_blank"><img src="http://img.youtube.com/vi/EB5I2f6FNzc/0.jpg" alt="Watch the second episone of Coding with Jon - Let's build a website" width="640" height="480" border="10" /></a></p>
 
