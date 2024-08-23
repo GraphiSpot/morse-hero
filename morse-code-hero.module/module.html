@@ -1,18 +1,52 @@
-{# Content variables #}
-{%- set headline    = module.headline -%}
-{%- set head_tag    = module.headline_size -%}
-{%- set head_class  = module.headline_style ~ " color-" ~ headline_color -%}
-
-{%- unless module.headline_aria == null -%} {# Use the headline as a aria-label fallback #}
-    {%- set head_aria_label     = module.headline_aria -%}
-{%- else -%}
-    {%- set head_aria_label     = headline -%}
-{%- endunless -%}
-
 {# Styling variables #}
-{%- set headline_color  = module.styles.headline_setting.color -%}
+{%- set headline_color  = module.styles.headline_settings.color -%}
 {%- set content_color   = module.styles.content_settings.color -%}
-    
+
+{# Styling variables / colors #}
+{% set colors = {
+    "solaris": "rgb(255, 92, 53)",
+    "yuma": "rgb(255, 207, 194)",
+    "lorax": "rgb(255, 122, 89)",
+    "helios": "rgb(212, 67, 37)",
+    "chapati": "rgb(252, 234, 215)",
+    "oatmilk": "rgb(254, 244, 234)",
+    "dark-matter": "rgb(25, 39, 51)",
+    "eclipse": "rgb(33, 51, 67)",
+    "galaxy": "rgb(46, 71, 93)",
+    "meteor": "rgb(62, 89, 116)",
+    "celestial": "rgb(81, 111, 144)",
+    "comet": "rgb(118, 145, 173)",
+    "nebula": "rgb(153, 175, 196)",
+    "milky-way": "rgb(182, 199, 214)",
+    "satelite": "rgb(219, 228, 237)",
+    "constellation": "rgb(234, 240, 246)",
+    "supernova": "rgb(246, 249, 252)",
+    "moon": "rgb(255, 255, 255)",
+    "cherry-:lossom": "rgb(246, 45, 113)",
+    "lake-hilier": "rgb(252, 192, 212)",
+    "cano-cristales": "rgb(248, 98, 149)",
+    "dahlia": "rgb(207, 27, 87)",
+    "kyoto": "rgb(237, 45, 64)",
+    "coquelicot": "rgb(251, 192, 198)",
+    "maple-leaf": "rgb(245, 98, 113)",
+    "tinto": "rgb(191, 36, 52)"
+    } 
+%}
+
+{%- require_css -%}
+    <style>
+        {% for name, rgb in colors.items() %}
+            .color-{{ name }}{
+                color: {{rgb}};
+            }
+            .bg-{{ name }}{
+            background-color: {{rgb}};
+            }
+        {% endfor %}
+        </style>
+{%- end_require_css -%}
+
+
 {# Button variables / icons #}
 {%- set fa_style        = module.styles.button_settings.icon_family -%}
 {%- set sharp_variant   = module.styles.button_settings.use_sharp -%}
@@ -48,21 +82,44 @@
 {%- set button_background_color     = module.styles.button_settings.background_color -%}
 {%- set button_size                 = module.styles.button_settings.padding -%}
 {%- set button_radius               = module.styles.button_settings.border_radius -%}
+{%- set button_link_color           = module.styles.button_settings.text_color -%}
 
 {# Hero styling #}
 {%- set hero_bg     = module.styles.hero_settings.background_color -%}
 
-        
-      
+{# Morse settings #}
+{%- set morse_iterations    = module.styles.morse_settings.iterations -%}
+{%- set morse_light         = module.styles.morse_settings.light_color -%}
+{%- set morse_dark         = module.styles.morse_settings.dark_color -%}
+
+    {# Content variables #}
+{%- set headline    = module.headline -%}
+{%- set head_tag    = module.headline_size -%}
+{%- set head_class  = module.headline_style ~ " color-" ~ headline_color -%}
+
+{%- unless module.headline_aria == null -%} {# Use the headline as a aria-label fallback #}
+    {%- set head_aria_label     = module.headline_aria -%}
+{%- else -%}
+    {%- set head_aria_label     = headline -%}
+{%- endunless -%}
+
+
+{# Headline macro #}
+{% macro simple_headline(headline, head_tag, head_class, aria-label)%}
+    <{{ head_tag }} class="color-{{ headline_color }} {{ head_class }}" aria-label="{{ aria-label }}">
+        {{ headline }}
+    </{{ head_tag }}>
+{% endmacro %}
+
 {# Button icon #}
 {%- macro btn_icon(icon_name, icon_size, icon_position) -%}
-    <i class="{{ icon_style }} fa-{{ icon_name }} icon {{ icon_size }} {{ icon_position }}" title="{{ icon_name|replace('-', ' ') }} icon"></i>
-    {%- endmacro -%}
-    
-    
+  <i class="{{ icon_style }} fa-{{ icon_name }} icon {{ icon_size }} {{ icon_position }}" title="{{ icon_name|replace('-', ' ') }} icon"></i>
+{%- endmacro -%}
+
+
 {# Button macro #}
-{% macro button(icon_name, icon_position, icon_size, button_label, btn_aria_label, button_link, class) %}
-<a href="{{ button_link.href }}" class="btn bg-{{ button_background_color }}" {% if button_link.new_tab %}target="_blank"{% endif %}{% if button_link.rel %} rel="{{ rel }}"{% endif %}>
+{% macro button(icon_name, icon_position, icon_size, button_label, btn_aria_label, button_link) %}
+<a href="{{ button_link.href }}" class="btn bg-{{ button_background_color }} color-{{ button_link_color }}" {% if button_link.new_tab %}target="_blank"{% endif %}{% if button_link.rel %} rel="{{ rel }}"{% endif %}>
     {% if icon_name %}
         {% if icon_position == "left" %}
             {{ btn_icon(icon_name, icon_size, icon_position) }}
@@ -78,18 +135,6 @@
 </a>
 {% endmacro %}
 
-
-
-{# Headline macro #}
-{% macro simple_headline(headline, head_tag, head_class, aria-label)%}
-    <{{ head_tag }} class="{{ head_class }}" aria-label="{{ aria-label }}">
-        {{ headline }}
-    </{{ head_tag }}>
-{% endmacro %}
-
-    
-    
-      
 {# linear gradient #}
 {%- macro linear_gradient(angle, color_1, position_1, color_2, position_2) -%}
     background: {{ color_1 }};
@@ -97,15 +142,16 @@
     background: -webkit-linear-gradient({{angle}}, {{color_1}} {{position_1}}%, {{color_2}} {{position_2}}%);
     background: linear-gradient({{angle}}, {{color_1}} {{position_1}}%, {{color_2}} {{position_2}}%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="{{color_1}}",endColorstr="{{color_2}}",GradientType=1); 
-{%- endmacro -%}
+ {%- endmacro -%}
 
 {# border radius #}
 {%- macro border_radius(border_radius) -%}
     -webkit-border-radius: {{border_radius}};
-        -moz-border-radius: {{border_radius}};
-            -o-border-radius: {{border_radius}};
+       -moz-border-radius: {{border_radius}};
+         -o-border-radius: {{border_radius}};
             border-radius: {{border_radius}};
 {%- endmacro -%}
+
 
 {% require_css %}
     <style>
@@ -124,7 +170,10 @@
     <div class="hero__container">
         <div class="hero__content">
             {{ simple_headline( headline, head_tag, head_class, head_aria_label ) }}
-            <p class="hero__description">{{ module.subline }}</p>
+            <p class="hero__description color-{{ content_color }}">{{ module.subline}}</p>
+            {%- if module.add_button -%}
+                {{ button(icon_name, icon_position, icon_size, label, aria_label, link, new_tab, rel, class) }}
+            {%- endif -%}
         </div>
         <div class="hero__morse-wrapper">
             <div id="morse-code-wrapper" class="morse-code-wrapper"></div>
@@ -136,30 +185,32 @@
 
 
 {# JavaScript #}
-{% if module.steps == "step_1" %}
-    {% require_js %}
-        <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Morsecode-Tabelle
-            const morseCode = {
-                'A': '.-',    'B': '-...',  'C': '-.-.',  'D': '-..',   'E': '.',     'F': '..-.',
-                'G': '--.',   'H': '....',  'I': '..',    'J': '.---',  'K': '-.-',   'L': '.-..',
-                'M': '--',    'N': '-.',    'O': '---',   'P': '.--.',  'Q': '--.-',  'R': '.-.',
-                'S': '...',   'T': '-',     'U': '..-',   'V': '...-',  'W': '.--',   'X': '-..-',
-                'Y': '-.--',  'Z': '--..',
-                '0': '-----', '1': '.----', '2': '..---', '3': '...--', '4': '....-', '5': '.....',
-                '6': '-....', '7': '--...', '8': '---..', '9': '----.',
-                ' ': ' / '
-            };
+{% require_js %}
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+    const morseCode = {
+    'A': '.-',    'B': '-...',  'C': '-.-.',  'D': '-..',   'E': '.',     'F': '..-.',
+    'G': '--.',   'H': '....',  'I': '..',    'J': '.---',  'K': '-.-',   'L': '.-..',
+    'M': '--',    'N': '-.',    'O': '---',   'P': '.--.',  'Q': '--.-',  'R': '.-.',
+    'S': '...',   'T': '-',     'U': '..-',   'V': '...-',  'W': '.--',   'X': '-..-',
+    'Y': '-.--',  'Z': '--..',
+    '0': '-----', '1': '.----', '2': '..---', '3': '...--', '4': '....-', '5': '.....',
+    '6': '-....', '7': '--...', '8': '---..', '9': '----.',
+    ' ': ' / '
+    };
 
-            function textToMorse(text) {
-                // Konvertiere den Text in Großbuchstaben
+    function textToMorse(text) {
                 text = text.toUpperCase();
-
-                // Ersetze jeden Buchstaben durch den entsprechenden Morsecode
                 const morse = text.split('').map(char => morseCode[char] || '').join(' ');
-
                 return morse;
+            }
+
+            function getColorClass(index) {
+                if (index % 3 === 0) {
+                    return 'bg-{{ morse_light }}';
+                } else {
+                    return 'bg-{{ morse_dark }}';
+                }
             }
 
             function displayMorseCode(morse, iterations) {
@@ -168,79 +219,35 @@
 
                 for (let i = 0; i < iterations; i++) {
                     const div = document.createElement('div');
-                    div.className = 'single-morse ' + (i % 2 === 0 ? 'light-color' : 'dark-color');
-                    div.innerText = morse;
-                    wrapper.appendChild(div);
-                }
-            }
+                    div.className = 'single-morse';
 
-            // Beispielverwendung
-            const inputText = "{{ headline }}";
-            const morseOutput = textToMorse(inputText);
-            const numberOfIterations = 5; // Anzahl der Wiederholungen
-            displayMorseCode(morseOutput, numberOfIterations);
-        });
-    </script>
-{% end_require_js %}
-{% elif module.steps == "step_2" %}
-    {% require_js %}
-        <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const morseCode = {
-                'A': '.-',    'B': '-...',  'C': '-.-.',  'D': '-..',   'E': '.',     'F': '..-.',
-                'G': '--.',   'H': '....',  'I': '..',    'J': '.---',  'K': '-.-',   'L': '.-..',
-                'M': '--',    'N': '-.',    'O': '---',   'P': '.--.',  'Q': '--.-',  'R': '.-.',
-                'S': '...',   'T': '-',     'U': '..-',   'V': '...-',  'W': '.--',   'X': '-..-',
-                'Y': '-.--',  'Z': '--..',
-                '0': '-----', '1': '.----', '2': '..---', '3': '...--', '4': '....-', '5': '.....',
-                '6': '-....', '7': '--...', '8': '---..', '9': '----.'
-            };
-
-            function textToMorse(text) {
-            
-                text = text.toUpperCase();
-
-            
-                const morse = text.split('').map(char => morseCode[char] || '').join(' ');
-
-                return morse;
-            }
-
-            function displayMorseCode(morse, iterations) {
-                const wrapper = document.getElementById('morse-code-wrapper');
-                wrapper.innerHTML = '';
-
-                for (let i = 0; i < iterations; i++) {
-                    const div = document.createElement('div');
-                    div.className = 'single-morse ' + (i % 2 === 0 ? 'light-color' : 'dark-color');
-
-                    morse.split('').forEach(char => {
-                        if (char === '.') {
-                            const span = document.createElement('span');
-                            span.className = 'dot';
-                            div.appendChild(span);
-                        } else if (char === '-') {
-                            const span = document.createElement('span');
-                            span.className = 'dash';
-                            div.appendChild(span);
-                        } else {
-                            const span = document.createElement('span');
-                            span.innerHTML = '&nbsp;';
-                            span.className = 'space';
-                            div.appendChild(span);
+                    morse.split('').forEach((char, index) => {
+                        const span = document.createElement('span');
+                        span.className = (char === '.') ? 'dot' : (char === '-') ? 'dash' : '';
+                        if (span.className) {
+                            span.className += ' ' + getColorClass(i);
                         }
+                        div.appendChild(span);
                     });
 
                     wrapper.appendChild(div);
                 }
             }
 
-            // Beispielverwendung
             const inputText = "{{ headline }}";
             const morseOutput = textToMorse(inputText);
-            const numberOfIterations = 5;
+            const numberOfIterations = {{ morse_iterations }}; 
             displayMorseCode(morseOutput, numberOfIterations);
         });
     </script>
-    {% end_require_js %}
-{% endif %}
+{% end_require_js %}
+
+{% require_css %}
+    <style>
+        {% scope_css %}
+            .hero__overlay{
+            {{ linear_gradient("0deg", "rgba(33, 51, 67, 1)", "0", "rgba(33, 51, 67, 0)", "50")}}
+            }
+        {% end_scope_css %}
+    </style>
+{% end_require_css %}

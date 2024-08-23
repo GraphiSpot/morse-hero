@@ -1,115 +1,85 @@
-
- 
- .sr-only {
-    position: absolute;
-    margin: -1px 0 0 -1px;
-    padding: 0;
-    display: block;
-    width: 1px;
-    height: 1px;
-    font-size: 1px;
-    line-height: 1px;
-    overflow: hidden;
-    clip: rect(0,0,0,0);
-    border: 0;
-    outline: 0;
+.sr-only {
+	position: absolute;
+	margin: -1px 0 0 -1px;
+	padding: 0;
+	display: block;
+	width: 1px;
+	height: 1px;
+	font-size: 1px;
+	line-height: 1px;
+	overflow: hidden;
+	clip: rect(0,0,0,0);
+	border: 0;
+	outline: 0;
 }
 
 .hero.morse{
-    position:relative;
+	position:relative;
+	overflow:hidden;
+	width:100vw;
+	min-height:30rem;
+	display:flex;
+
 }
 .hero.morse .hero__container{
-    max-width:80%;
-    margin:0 auto;
-    display:flex;
+	max-width:80%;
+	margin:0 auto;
+	display:flex;
+	align-items:center;
 }
 
 .hero.morse .hero__container .hero__content,
 .hero.morse .hero__container .hero__morse-wrapper{
-width:50%;
-}
-
-.color-solaris{
-    color:#ff5c35;
-}
-
-.color-oatmilk{
-    color:#fef4ea;
-}
-
-.color-supernova{
-    color:#f6f9fc;
-}
-
-.color-comet{
-    color:#7691ad;
-}
-
-.bg-solaris{
-    background-color:#ff5c35;
-}
-
-.bg-oatmilk{
-    background-color:#fef4ea;
-}
-
-.bg-supernova{
-    background-color:#f6f9fc;
-}
-
-.bg-comet{
-    background-color:#7691ad;
+	width:50%;
 }
 
 .morse-code-wrapper {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    width:50%;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	gap:1rem;
+	width:50%;
 }
 
 .single-morse {
-    white-space:nowrap;
-    font-size:3rem;
+	white-space:nowrap;
 }
 
 .single-morse:nth-of-type(odd){
-    margin-left:2rem;
+	margin-left:2rem;
 }
 
 .single-morse span{
-    height:1.5rem;
-    border-radius:1.5rem;
-    display:inline-flex;
-    margin:0 .125rem;
+	height:1.5rem;
+	border-radius:1.5rem;
+	display:inline-flex;
+	margin:0 .125rem;
 }
 
 .dash{
-    width:3rem;
-    height:1.5rem;
+	width:3rem;
+	height:1.5rem;
 }
 
 .dot{
-    width:1.5rem;
-    height:1.5rem;
+	width:1.5rem;
+	height:1.5rem;
 }
 
-.light-color span:not(.space){
-    background-color: #7fd1de;
-}
-
-.dark-color span:not(.space){
-    background-color: #005896;
-}
-
-.single-morse span.space{
-    width:1rem;
+.single-morse span.spacing{
+	width:1rem;
+	background-color:transparent !important;
 }
 
 .hero__overlay{
-    width:100%;
-    height:5rem;
-    position:absolute;
-    bottom:0;
- 
+	width:100%;
+	height:10rem;
+	position:absolute;
+	bottom:0;
+
+}
+
+.hero .btn{
+	text-decoration:none;
+	display:inline-block;
 }
