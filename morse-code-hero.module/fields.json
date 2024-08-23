@@ -1,21 +1,5 @@
 [
 	{
-		"name": "steps",
-		"label": "Iterations",
-		"required": false,
-		"locked": false,
-		"display": "radio",
-		"inline_help_text": "<strong>Just for demo purpose!</strong> Changing this will show each evolution of the script",
-		"help_text": "",
-		"choices": [
-			["step_1", "Step 1"],
-			["step_2", "Step 2"]
-		],
-		"type": "choice",
-		"placeholder": "",
-		"default": "step_1"
-	},
-	{
 		"name": "headline",
 		"label": "Headline",
 		"id": "content.headline",
@@ -278,7 +262,7 @@
 						"max": null,
 						"inline_help_text": "",
 						"help_text": "",
-						"default": 15
+						"default": 5
 					},
 					{
 						"name": "light_color",
@@ -520,6 +504,46 @@
 						"type": "choice",
 						"placeholder": "",
 						"default": "solaris"
+					},
+					{
+						"name": "text_color",
+						"label": "Text color",
+						"required": false,
+						"locked": false,
+						"display": "select",
+						"inline_help_text": "",
+						"help_text": "",
+						"choices": [
+							["solaris", "Solaris"],
+							["yuma", "Yuma"],
+							["lorax", "Lorax"],
+							["helios", "Helios"],
+							["chapati", "Chapati"],
+							["oatmilk", "Oatmilk"],
+							["dark-matter", "Dark Matter"],
+							["eclipse", "Eclipse"],
+							["galaxy", "Galaxy"],
+							["meteor", "Meteor"],
+							["celestial", "Celestial"],
+							["comet", "Comet"],
+							["nebula", "Nebula"],
+							["milky-way", "Milky Way"],
+							["satelite", "Satelite"],
+							["constellation", "Constellation"],
+							["supernova", "Supernova"],
+							["moon", "Moon"],
+							["cherry-blossom", "Cherry Blossom"],
+							["lake-hilier", "Lake Hilier"],
+							["cano-cristales", "Caño Cristales"],
+							["dahlia", "Dahlia"],
+							["kyoto", "Kyoto"],
+							["coquelicot", "Coquelicot"],
+							["maple-leaf", "Maple Leaf"],
+							["tinto", "Tinto"]
+						],
+						"type": "choice",
+						"placeholder": "",
+						"default": "oatmilk"
 					},
 					{
 						"name": "padding",
