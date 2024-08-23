@@ -1,6 +1,6 @@
 <h1>What is it?</h1>
-It's a hero module that I(Anton) created after Jon McLaren showed the Figma File in the first "Coding with Jon: Let's Build a Website" episode. If you don't know what's it all about - here's the video:
-<a href="http://www.youtube.com/watch?feature=player_embedded&v=tbQ0EkAXrm8" target="_blank"><img src="http://img.youtube.com/vi/tbQ0EkAXrm8/0.jpg" alt="Watch the first episone of Coding with Jon - Let's build a website" width="240" height="180" border="10" /></a>
+It's a hero module that I(Anton) created after Jon McLaren showed the Figma File in the first "Coding with Jon: Let's Build a Website" episode. If you don't know what's it all about - here's the video:<br>
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=tbQ0EkAXrm8" target="_blank"><img src="http://img.youtube.com/vi/tbQ0EkAXrm8/0.jpg" alt="Watch the first episone of Coding with Jon - Let's build a website" width="640" height="480" border="10" /></a>
 
 <h2>How to use it?</h2>
 <p>Just use it as you would use a regular module. Just keep in mind that since it's a "hero" module it should be used once on a page.</p>
@@ -63,8 +63,8 @@ It's a hero module that I(Anton) created after Jon McLaren showed the Figma File
 
 <h2>Anything special?</h2>
 <p>Since it was designed truely "by eye" without ever having access to the real Figma file and without seeing a tablet/mobile version - it's optimized for desktop and should be seen more as a "proof of concept" than a fully ready-to-use module. I(Anton) had the </p>
-<p>If you'd like to see the second episode of "Coding with Jon: Let's Build a Website" where I was invited to and talked about the module, here it is:
-<a href="http://www.youtube.com/watch?feature=player_embedded&v=EB5I2f6FNzc" target="_blank"><img src="http://img.youtube.com/vi/EB5I2f6FNzc/0.jpg" alt="Watch the second episone of Coding with Jon - Let's build a website" width="240" height="180" border="10" /></a></p>
+<p>If you'd like to see the second episode of "Coding with Jon: Let's Build a Website" where I was invited to and talked about the module, here it is:<br>
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=EB5I2f6FNzc" target="_blank"><img src="http://img.youtube.com/vi/EB5I2f6FNzc/0.jpg" alt="Watch the second episone of Coding with Jon - Let's build a website" width="640" height="480" border="10" /></a></p>
 
 <h2>Usage:</h2>
 <p>Feel free to fork it and modify it to your requirements. If you use it somewhere, I(Anton) would love to see it in action.</p>
